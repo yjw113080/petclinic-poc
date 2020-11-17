@@ -36,9 +36,16 @@ spec:
         app: petclinic
     spec:
       containers:
-        - image: 865200059792.dkr.ecr.ap-northeast-2.amazonaws.com/spring-petclinic:latest
+        - image: <ECR_URI>:latest
           imagePullPolicy: Always
           name: petclinic
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 512Mi
+            requests:
+              cpu: 500m
+              memory: 256Mi
           securityContext:
             runAsUser: 1000
           ports:
